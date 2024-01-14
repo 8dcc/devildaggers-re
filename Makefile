@@ -1,9 +1,11 @@
 
 CC=gcc
-CFLAGS=-Wall -Wextra -m32 -fPIC
+CFLAGS=-Wall -Wextra -fPIC
 LDFLAGS=
 
-OBJS=obj/main.c.o
+MAIN_OBJS=main.c.o globals.c.o
+OBJS=$(addprefix obj/, $(MAIN_OBJS))
+
 BIN=libdd-re.so
 
 .PHONY: clean all inject
