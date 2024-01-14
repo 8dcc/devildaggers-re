@@ -4,7 +4,7 @@ CFLAGS=-Wall -Wextra -m32 -fPIC
 LDFLAGS=
 
 OBJS=obj/main.c.o
-BIN=libPROJECT-NAME.so
+BIN=libdd-re.so
 
 .PHONY: clean all inject
 
@@ -25,5 +25,5 @@ $(BIN): $(OBJS)
 	$(CC) $(CFLAGS) -shared -o $@ $(OBJS) $(LDFLAGS)
 
 $(OBJS): obj/%.c.o : src/%.c
-	@mkdir -p obj/
-	$(CC) $(CFLAGS) -c -o $@ $< $(LDFLAGS)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $<
