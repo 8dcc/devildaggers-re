@@ -3,11 +3,15 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
+#include "include/globals.h"
+
 static bool loaded = false;
 
 __attribute__((constructor)) /* Entry point when injected */
 void load(void) {
-    printf("dd-re injected!\n");
+    printf("\ndd-re injected!\n");
+
+    globals_init();
 
     loaded = true;
 }
@@ -19,7 +23,7 @@ void unload() {
 
     /* TODO: Unhook stuff */
 
-    printf("dd-re unloaded.\n\n");
+    printf("dd-re unloaded.\n");
 }
 
 void self_unload(void) {
