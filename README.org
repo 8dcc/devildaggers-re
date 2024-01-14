@@ -1,33 +1,28 @@
-#+title: Title
+#+title: Devil Daggers RE
 #+options: toc:nil
 #+startup: showeverything
 #+export_file_name: ./doc/README.md
 #+author: 8dcc
 
-#+begin_comment
-*TODO:* Change PROJECT-NAME and title
-*TODO:* Change ~pidof "PROJECT-NAME"~ / ~realpath "libPROJECT-NAME.so"~ / ~PROJECT-NAME already loaded...~
-*TODO:* Change ~libPROJECT-NAME.so~ in Makefile
-*TODO:* Change PROJECT-NAME in main.c
-#+end_comment
-
-*Short description.*
+*Reverse Engineering stuff for the linux version of Devil Daggers.*
 
 #+TOC: headlines 2
 
 * Description
-Long description.
+
+The purpose of this project is to learn about reverse engineering, not cheating.
 
 * Building
 
 #+begin_src console
-$ git clone https://github.com/8dcc/PROJECT-NAME
-$ cd PROJECT-NAME
+$ git clone https://github.com/8dcc/devildaggers-re
+$ cd devildaggers-re
 $ make
 ...
 #+end_src
 
 * Injecting
+
 Uses the [[https://www.gnu.org/savannah-checkouts/gnu/gdb/index.html][gdb]] debugger for injecting the library.
 
 #+begin_src console
@@ -36,5 +31,5 @@ $ ./injector.sh
 
 ...
 
-PROJECT-NAME loaded!
+dd-re loaded!
 #+end_src
