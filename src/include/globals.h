@@ -5,8 +5,11 @@
 #include <stdbool.h>
 #include "sdk.h"
 
-typedef bool (*hero_step_t)(Hero* thisptr, float rsi);
+typedef bool (*hero_step_t)(Hero*, float);
 extern hero_step_t hero_step;
+
+typedef void (*hero_take_hit_t)(Hero*, bool, int, bool);
+extern hero_take_hit_t hero_take_hit;
 
 /*----------------------------------------------------------------------------*/
 
