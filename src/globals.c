@@ -25,8 +25,5 @@ bool globals_init(void) {
 
     hero_step = dlsym(h_self, "_ZN6verse24hero4stepEf");
 
-    /* TODO: Hook */
-    PRINT_BYTES(hero_step, 40);
-
     return true;
 }

@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra -fPIC
 LDFLAGS=
 
-MAIN_OBJS=main.c.o globals.c.o
+MAIN_OBJS=main.c.o globals.c.o hooks.c.o detour.c.o
 OBJS=$(addprefix obj/, $(MAIN_OBJS))
 
 BIN=libdd-re.so

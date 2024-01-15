@@ -3,7 +3,10 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
+#include "include/main.h"
+#include "include/util.h"
 #include "include/globals.h"
+#include "include/hooks.h"
 
 static bool loaded = false;
 
@@ -11,7 +14,17 @@ __attribute__((constructor)) /* Entry point when injected */
 void load(void) {
     printf("\ndd-re injected!\n");
 
-    globals_init();
+    if (!globals_init()) {
+        ERR("Error loading globals, aborting.");
+        self_unload();
+        return;
+    }
+
+    if (!hooks_init()) {
+        ERR("Error hooking functions, aborting.");
+        self_unload();
+        return;
+    }
 
     loaded = true;
 }
@@ -21,7 +34,7 @@ void unload() {
     if (!loaded)
         return;
 
-    /* TODO: Unhook stuff */
+    hooks_restore();
 
     printf("dd-re unloaded.\n");
 }
