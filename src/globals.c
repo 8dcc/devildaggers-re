@@ -1,8 +1,11 @@
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
+#include "include/globals.h"
 #include "include/util.h"
+#include "include/sdk.h"
 
 #define GET_HANDLER(VAR, STR)                         \
     void* VAR = dlopen(STR, RTLD_LAZY | RTLD_NOLOAD); \
@@ -13,15 +16,17 @@
 
 /*----------------------------------------------------------------------------*/
 
+hero_step_t hero_step;
+
+/*----------------------------------------------------------------------------*/
+
 bool globals_init(void) {
     GET_HANDLER(h_self, NULL);
 
-    typedef void* (*get_hero_t)(void* rdi, void* rsi);
-    get_hero_t get_hero =
-      dlsym(h_self, "_ZN6verse25arena17get_hero_positionEv");
+    hero_step = dlsym(h_self, "_ZN6verse24hero4stepEf");
 
-    /* TODO: Hook and print address */
-    PRINT_BYTES(get_hero, 20);
+    /* TODO: Hook */
+    PRINT_BYTES(hero_step, 40);
 
     return true;
 }
