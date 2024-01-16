@@ -24,4 +24,7 @@
         putchar('\n');                             \
     } while (0)
 
+/* Location of address + Size of offset + Offset */
+#define RELATIVE2ABSOLUTE(ADDR) (void*)((void*)(ADDR) + 4 + *(uint32_t*)(ADDR))
+
 #endif /* UTIL_H_ */
