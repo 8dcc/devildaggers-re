@@ -12,6 +12,19 @@
 
 The purpose of this project is to learn about reverse engineering, not cheating.
 
+This project uses my own [[https://github.com/8dcc/detour-lib][detour hooking library]]. For more information about
+detour hooking, see my [[https://8dcc.github.io/programming/detour-hooking.html][blog entry]].
+
+* Features
+
+All features can be changed at compile-time from [[file:src/include/settings.h][settings.h]]. I haven't added a
+menu because this is a small project for learning about reversing and for
+tinkering with the game.
+
+All settings except god-mode are "detected", meaning your score won't be
+submitted. Although this can be easily avoided (have a look at
+=verse2::VERSE::step_ui()=), I decided not to bypass it for now.
+
 * Building
 
 #+begin_src console
