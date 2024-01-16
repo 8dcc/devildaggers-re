@@ -1,0 +1,14 @@
+
+/* Use this file to enable and disable features at compile-time */
+
+/* Should we print information to the console? 0-1 */
+#define PRINT_INFO 1
+
+/* Only die when falling. 0-1 */
+#define GODMODE 1
+
+/* Level and homing multipliers: When the gem/homing level increases, multiply
+ * by this number.
+ * NOTE: Will make your score invalid. */
+#define LEVEL_MUL  1
+#define HOMING_MUL 1
