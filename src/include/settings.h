@@ -12,3 +12,8 @@
  * NOTE: Will make your score invalid. */
 #define LEVEL_MUL  1
 #define HOMING_MUL 1
+
+/* Level and particle editors. 0-1
+ * NOTE: Will make your score invalid. */
+#define LEVEL_EDITOR    0
+#define PARTICLE_EDITOR 0

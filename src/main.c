@@ -36,6 +36,10 @@ void unload() {
 
     hooks_restore();
 
+    /* Disable editors when unhooking */
+    verse_globals->level_editor    = false;
+    verse_globals->particle_editor = false;
+
     printf("dd-re unloaded.\n");
 }
 

@@ -36,11 +36,16 @@ static void scale_levels(Hero* hero) {
 static bool h_hero_step(Hero* thisptr, float rsi) {
     scale_levels(thisptr);
 
+    if (LEVEL_EDITOR)
+        verse_globals->level_editor = true;
+    if (PARTICLE_EDITOR)
+        verse_globals->particle_editor = true;
+
     bool ret;
     DETOUR_ORIG_GET(&ctx_hero_step, ret, hero_step, thisptr, rsi);
 
     if (PRINT_INFO)
-        printf("\rDagger: %d | Homing: %d", thisptr->dagger_level,
+        printf("\rGems: %d | Homing: %d", thisptr->dagger_level,
                thisptr->homing_daggers);
 
     return ret;
@@ -49,7 +54,7 @@ static bool h_hero_step(Hero* thisptr, float rsi) {
 static bool h_hero_take_hit(Hero* thisptr, bool rsi, int death_type, bool rcx) {
     if (GODMODE) {
         if (PRINT_INFO)
-            printf("\r[%d, %d, %d] We ain't dying...\n", rsi, death_type, rcx);
+            printf("\r[%d, %02d, %d] Cheating death...\n", rsi, death_type, rcx);
         return false;
     }
 
