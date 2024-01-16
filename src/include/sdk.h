@@ -9,7 +9,8 @@
 #define PADSTR(N) STR(pad, N)
 #define PAD(N)    uint8_t PADSTR(__LINE__)[N]
 
-typedef struct {
+typedef struct Hero Hero;
+struct Hero {
     PAD(0x354);
 
     /* 0x354, See verse2::hero::get_dagger_level() */
@@ -19,6 +20,15 @@ typedef struct {
 
     /* 0x360, See verse2::hero::get_homing_daggers() */
     uint32_t homing_daggers;
-} Hero;
+} __attribute__((packed));
+
+typedef struct verse_globals_t verse_globals_t;
+struct verse_globals_t {
+    PAD(0x488);
+
+    /* 0x488, See verse2::VERSE::step_ui(), "PARTICLES" */
+    bool particle_editor;
+    bool level_editor;
+} __attribute__((packed));
 
 #endif /* SDK_H_ */

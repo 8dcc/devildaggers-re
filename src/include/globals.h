@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include "sdk.h"
 
+extern verse_globals_t* verse_globals;
+
 typedef bool (*hero_step_t)(Hero*, float);
 extern hero_step_t hero_step;
 
