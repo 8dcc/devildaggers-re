@@ -5,6 +5,9 @@
 #include <stdbool.h>
 #include "sdk.h"
 
+#define SYM_HERO_STEP     "_ZN6verse24hero4stepEf"
+#define SYM_HERO_TAKE_HIT "_ZN6verse24hero8take_hitEbN5verse10death_typeEb"
+
 extern verse_globals_t* verse_globals;
 
 typedef bool (*hero_step_t)(Hero*, float);
