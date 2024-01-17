@@ -24,7 +24,12 @@ struct Hero {
 
 typedef struct verse_globals_t verse_globals_t;
 struct verse_globals_t {
-    PAD(0x488);
+    PAD(0x2BC);
+
+    /* 0x2BC, Toggle on replay and find offset in GameConqueror */
+    bool top_down_cam;
+
+    PAD(0x1CB);
 
     /* 0x488, See verse2::VERSE::step_ui(), "PARTICLES" */
     bool particle_editor;

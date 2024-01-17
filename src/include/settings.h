@@ -7,6 +7,9 @@
 /* Only die when falling. 0-1 */
 #define GODMODE 1
 
+/* Enable top-down camera (Press M on replays). 0-1 */
+#define TOP_DOWN_CAM 1
+
 /* Level and homing multipliers: When the gem/homing level increases, multiply
  * by this number.
  * NOTE: Will make your score invalid. */

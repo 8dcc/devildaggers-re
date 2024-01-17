@@ -36,10 +36,10 @@ static void scale_levels(Hero* hero) {
 static bool h_hero_step(Hero* thisptr, float rsi) {
     scale_levels(thisptr);
 
-    if (LEVEL_EDITOR)
-        verse_globals->level_editor = true;
-    if (PARTICLE_EDITOR)
-        verse_globals->particle_editor = true;
+    /* See settings.h */
+    verse_globals->top_down_cam    = TOP_DOWN_CAM;
+    verse_globals->level_editor    = LEVEL_EDITOR;
+    verse_globals->particle_editor = PARTICLE_EDITOR;
 
     bool ret;
     DETOUR_ORIG_GET(&ctx_hero_step, ret, hero_step, thisptr, rsi);
@@ -54,7 +54,8 @@ static bool h_hero_step(Hero* thisptr, float rsi) {
 static bool h_hero_take_hit(Hero* thisptr, bool rsi, int death_type, bool rcx) {
     if (GODMODE) {
         if (PRINT_INFO)
-            printf("\r[%d, %02d, %d] Cheating death...\n", rsi, death_type, rcx);
+            printf("\r[%d, %02d, %d] Cheating death...\n", rsi, death_type,
+                   rcx);
         return false;
     }
 
