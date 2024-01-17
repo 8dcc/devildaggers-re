@@ -12,6 +12,9 @@
 
 The purpose of this project is to learn about reverse engineering, not cheating.
 
+I made an article for my blog explaining the reversing process, if you are
+interested, make sure to [[https://8dcc.github.io/reversing/devildaggers.html][check it out]].
+
 This project uses my own [[https://github.com/8dcc/detour-lib][detour hooking library]]. For more information about
 detour hooking, see my [[https://8dcc.github.io/programming/detour-hooking.html][blog entry]].
 
@@ -24,6 +27,9 @@ tinkering with the game.
 All settings except god-mode are "detected", meaning your score won't be
 submitted. Although this can be easily avoided (have a look at
 =verse2::VERSE::step_ui()=), I decided not to bypass it for now.
+
+[[https://8dcc.github.io/img/devildaggers8.png]]
+[[https://8dcc.github.io/img/devildaggers9.png]]
 
 * Building
 
