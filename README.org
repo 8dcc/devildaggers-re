@@ -28,7 +28,12 @@ All settings except god-mode are "detected", meaning your score won't be
 submitted. Although this can be easily avoided (have a look at
 =verse2::VERSE::step_ui()=), I decided not to bypass it for now.
 
+Level editor:
+
 [[https://8dcc.github.io/img/devildaggers8.png]]
+
+Particle editor:
+
 [[https://8dcc.github.io/img/devildaggers9.png]]
 
 * Building
