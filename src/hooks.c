@@ -45,8 +45,8 @@ static bool h_hero_step(Hero* thisptr, float rsi) {
     DETOUR_ORIG_GET(&ctx_hero_step, ret, hero_step, thisptr, rsi);
 
     if (PRINT_INFO)
-        printf("\rGems: %d | Homing: %d", thisptr->dagger_level,
-               thisptr->homing_daggers);
+        printf("\rHero: %p | Gems: %d | Homing: %d", thisptr,
+               thisptr->dagger_level, thisptr->homing_daggers);
 
     return ret;
 }
