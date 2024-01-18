@@ -22,14 +22,15 @@ def main():
     print(f"Starting in 5 seconds with menu position: ({x_pos}, {y_pos})")
     time.sleep(5)
 
-    # FIXME: Doesn't exit the program, see boppreh/keyboard#626
-    keyboard.on_press_key("F4", lambda event: exit(1))
+    # FIXME: exit() doesn't exit the program, see boppreh/keyboard#626
+    keyboard.on_press_key("F4", lambda event: print("TODO"))
     print(f"Exit by pressing F4.")
 
     # Click "Play"
     m.press(x_pos, y_pos)
-    time.sleep(0.1)
+    time.sleep(0.05)
     m.release(x_pos, y_pos)
+    time.sleep(0.5)
 
     # Walk to dagger
     keyboard.press("w")
@@ -39,8 +40,12 @@ def main():
     try:
         # Submit infinite scores
         while True:
-            # Wait round time
+            time.sleep(0.5)
+
+            # Wait round time, look down and hold attack
+            m.press(x_pos, y_pos + 200)
             time.sleep(SCORE_TIME)
+            m.release(x_pos, y_pos + 200)
 
             # SCORE_TIME seconds have passed, kill ourselves by fall
             keyboard.press("w")
@@ -52,7 +57,7 @@ def main():
 
             # Click "Retry"
             m.press(x_pos, y_pos)
-            time.sleep(0.1)
+            time.sleep(0.05)
             m.release(x_pos, y_pos)
     except KeyboardInterrupt:
         print("\rCtrl-C detected. Exiting...")
